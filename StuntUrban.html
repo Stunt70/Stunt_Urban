@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<title>Stun Urban</title>
+  	<style>
+	body {
+	background-image: url('imagenFondo.jpeg');
+  	background-size:cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	color: white;
+	text-align: center;
+
+}
+	 nav {
+	width:100%;
+	text-align: center;
+}
+ 	label {
+	padding:40px;
+	font-size:1.5em;
+}
+	.container {
+	color: white;
+}
+  nav a { 
+	color: blue;
+	text-decoration: none;
+	font-weight: bold;
+}
+  nav a:hover {
+	text-decoration: underline;
+}
+	.product img {
+	width: 200px;
+	height: auto;
+	border-radius: 10px;
+}
+	.products-grid {
+	display:flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+ 
+   </style>
+</head>
+
+
+<body>    
+<header>
+  <h1>Stunt Urban</h1>
+  <p>Un estilo unico</p>
+</header>
+ 
+<nav>
+ <label> <a target="_blank" href="https://www.instagram.com/stunturban_col/">Productos</a> </label>
+ <label> <a target="_blank" href="https://api.whatsapp.com/send/?phone=573154647189&text&type=phone_number&app_absent=0">Contacto</a> </label>
+</nav>
+
+<div class="container">
+  	<h2>Nuestros productos</h2>
+	<div class="products-grid">
+    	<div class="product">
+      <img id="gafasSlide" src= "gafas1.jpeg"
+	alt="Gafas">																				  
+       <h3>Gafas</h3>
+      <p>$50.000/und</p>
+    </div>
+    
+<div class="product">
+      <img id="gorrasSlide" src="gorra1.jpeg"
+	alt="Gorra">
+      <h3>Gorras</h3>
+      <p>$50.000/und</p>
+    </div>
+    
+<div class="product">
+      <img id="sombrerosSlide" src="sombrero1.jpeg"
+	alt="Sombreros">
+      <h3>Sombreros</h3>
+      <p>$100.000/und</p>
+    </div>
+    
+<div class="product">
+      <img id="chaquetasSlide" src="chaqueta1.jpeg" 
+	alt="Chaquetas">
+      <h3>Chaquetas</h3>
+      <p>$60.000/und</p>
+    </div>
+
+<div class="product">
+      <img id="bolsosSlide" src="bolso1.jpeg"
+       alt="Bolsos">
+      <h3>Bolsos</h3>
+      <p>$70.000/und</p>
+  </div>
+<div class="product">
+      <img id="cangurosSlide" src="canguro1.jpeg"
+       alt="Canguros">
+      <h3>Canguros</h3>
+      <p>$60.000/und</p>
+
+</div>
+
+<footer>
+  <p>Un estilo muy unico</p>
+</footer>
+
+	<script>
+  function crearSlider(id, imagenes, tiempo) {
+
+        imagenes.forEach(src => { const img = new Image(); img.src = src; });
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % imagenes.length;
+      document.getElementById(id).src = imagenes[index];
+    }, tiempo);
+  }
+
+  crearSlider("gafasSlide", [
+    "gafas1.jpeg", "gafas2.jpeg", "gafas3.jpeg", "gafas4.jpeg", "gafas5.jpeg", "gafas6.jpeg"
+  ], 2000);
+
+  crearSlider("gorrasSlide", [
+    "gorra1.jpeg", "gorra2.jpeg", "gorra3.jpeg", "gorra4.jpeg"
+  ], 2000);
+
+  crearSlider("sombrerosSlide", [
+    "sombrero1.jpeg", "sombrero2.jpeg"
+  ], 2000);
+
+  crearSlider("chaquetasSlide", [
+    "chaqueta1.jpeg", "chaqueta2.jpeg"
+  ], 2000);
+
+crearSlider("bolsosSlide", [
+    "bolso1.jpeg", "bolso2.jpeg"
+  ], 2000);
+
+
+ </script>
+
+</body>
+</html>
