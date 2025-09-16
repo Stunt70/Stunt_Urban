@@ -8,25 +8,17 @@
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
+      height: 100%; /* Asegura que ocupe toda la pantalla */
     }
 
     body {
+      background-image: url('imagenFondo.jpeg');
+      background-size: cover; /* Ocupa toda la pantalla */
+      background-repeat: no-repeat;
+      background-position: center;
       font-family: Arial, sans-serif;
       color: white;
       text-align: center;
-      position: relative;
-    }
-
-    /* Fondo fijo que llena toda la pantalla */
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100vh;
-      background: url('imagenFondo.jpeg') center/cover no-repeat;
-      z-index: -1;
     }
 
     header h1 {
@@ -34,15 +26,17 @@
     }
 
     nav {
+      width: 100%;
+      text-align: center;
       margin: 20px 0;
     }
 
     nav a {
       margin: 0 15px;
       color: #00f;
-      font-size: 1.2em;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1.2em;
     }
 
     nav a:hover {
@@ -60,7 +54,7 @@
     }
 
     .product {
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.6);
       border-radius: 12px;
       padding: 15px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.5);
@@ -68,6 +62,7 @@
 
     .product img {
       width: 100%;
+      max-width: 250px;
       height: auto;
       border-radius: 10px;
     }
@@ -88,41 +83,70 @@
   <nav>
     <a target="_blank" href="https://www.instagram.com/stunturban_col/">Productos</a>
     <a target="_blank" href="https://api.whatsapp.com/send/?phone=573154647189&text&type=phone_number&app_absent=0">Contacto</a>
-    <a target="_blank" href="Mision:Ofrecer ropa de calidad, moderna y accesible para toda la comunidad de Zarzal y sus alrededores, brindando una excelente atención al cliente y promoviendo el estilo y la identidad local. Nos comprometemos a vestir a nuestros clientes con prendas que reflejen su personalidad, comodidad y confianza.Vision:Ser la tienda de ropa líder en Zarzal reconocida por su innovación en moda, compromiso con la satisfacción del cliente y apoyo al talento local. Aspiramos a expandir nuestra presencia en la región, posicionándonos como un referente de estilo y calidad en el norte del Valle.">Mision y Vision</a>
+    <a target="_blank" href="mision.html">Misión y Visión</a>
   </nav>
 
   <div class="container">
     <h2>Nuestros productos</h2>
     <div class="products-grid">
-      <div class="product"><img id="gafasSlide" src="gafas1.jpeg" alt="Gafas"><h3>Gafas</h3><p>$50.000/und</p></div>
-      <div class="product"><img id="gorrasSlide" src="gorra1.jpeg" alt="Gorra"><h3>Gorras</h3><p>$50.000/und</p></div>
-      <div class="product"><img id="sombrerosSlide" src="sombrero1.jpeg" alt="Sombreros"><h3>Sombreros</h3><p>$100.000/und</p></div>
-      <div class="product"><img id="chaquetasSlide" src="chaqueta1.jpeg" alt="Chaquetas"><h3>Chaquetas</h3><p>$60.000/und</p></div>
-      <div class="product"><img id="bolsosSlide" src="bolso1.jpeg" alt="Bolsos"><h3>Bolsos</h3><p>$70.000/und</p></div>
-      <div class="product"><img id="cangurosSlide" src="canguro1.jpeg" alt="Canguros"><h3>Canguros</h3><p>$60.000/und</p></div>
+      <div class="product">
+        <img id="gafasSlide" src="gafas1.jpeg" alt="Gafas">
+        <h3>Gafas</h3>
+        <p>$50.000/und</p>
+      </div>
+
+      <div class="product">
+        <img id="gorrasSlide" src="gorra1.jpeg" alt="Gorra">
+        <h3>Gorras</h3>
+        <p>$50.000/und</p>
+      </div>
+
+      <div class="product">
+        <img id="sombrerosSlide" src="sombrero1.jpeg" alt="Sombreros">
+        <h3>Sombreros</h3>
+        <p>$100.000/und</p>
+      </div>
+
+      <div class="product">
+        <img id="chaquetasSlide" src="chaqueta1.jpeg" alt="Chaquetas">
+        <h3>Chaquetas</h3>
+        <p>$60.000/und</p>
+      </div>
+
+      <div class="product">
+        <img id="bolsosSlide" src="bolso1.jpeg" alt="Bolsos">
+        <h3>Bolsos</h3>
+        <p>$70.000/und</p>
+      </div>
+
+      <div class="product">
+        <img id="cangurosSlide" src="canguro1.jpeg" alt="Canguros">
+        <h3>Canguros</h3>
+        <p>$60.000/und</p>
+      </div>
     </div>
   </div>
 
-  <footer><p>Un estilo muy único © 2025 Stunt Urban</p></footer>
+  <footer>
+    <p>Un estilo muy único © 2025 Stunt Urban</p>
+  </footer>
 
   <script>
     function crearSlider(id, imagenes, tiempo) {
-      imagenes.forEach(src => { new Image().src = src; });
+      imagenes.forEach(src => { const img = new Image(); img.src = src; });
       let index = 0;
       setInterval(() => {
-        document.getElementById(id).src = imagenes[index];
         index = (index + 1) % imagenes.length;
+        document.getElementById(id).src = imagenes[index];
       }, tiempo);
     }
-    crearSlider("gafasSlide", ["gafas1.jpeg","gafas2.jpeg"], 2000);
-    crearSlider("gorrasSlide", ["gorra1.jpeg","gorra2.jpeg"], 2000);
+
+    crearSlider("gafasSlide", ["gafas1.jpeg","gafas2.jpeg","gafas3.jpeg","gafas4.jpeg","gafas5.jpeg","gafas6.jpeg"], 2000);
+    crearSlider("gorrasSlide", ["gorra1.jpeg","gorra2.jpeg","gorra3.jpeg","gorra4.jpeg"], 2000);
     crearSlider("sombrerosSlide", ["sombrero1.jpeg","sombrero2.jpeg"], 2000);
     crearSlider("chaquetasSlide", ["chaqueta1.jpeg","chaqueta2.jpeg"], 2000);
     crearSlider("bolsosSlide", ["bolso1.jpeg","bolso2.jpeg"], 2000);
-    crearSlider("cangurosSlide", ["canguro1.jpeg"], 2000);
+    crearSlider("cangurosSlide", ["canguro1.jpeg","canguro2.jpeg"], 2000);
   </script>
 </body>
 </html>
-
-
-
